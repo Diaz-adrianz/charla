@@ -73,6 +73,9 @@ span {
 	background: none;
 	border: none;
 }
+tr {
+	transition: border 0.2s;
+}
 tr.active {
 	border-top: 1px solid var(--bs-primary);
 	border-bottom: 1px solid var(--bs-primary);

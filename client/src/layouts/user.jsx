@@ -69,7 +69,8 @@ function UserLayout() {
 
 			<main
 				id="main-chat"
-				className="d-flex flex-column col-md-6 col-lg-8 p-0 offcanvas-md offcanvas-end"
+				data-bs-backdrop="false"
+				className="d-flex flex-column col-md-6 col-lg-8 p-0 offcanvas-md offcanvas-end border-0 shadow-none"
 				tabIndex={-1}
 			>
 				<MainBar></MainBar>

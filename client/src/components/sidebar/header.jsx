@@ -4,6 +4,7 @@ class SidebarHeader extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			q: '',
 			searchActive: false,
 		};
 	}
@@ -33,8 +34,12 @@ class SidebarHeader extends Component {
 				<div id="sidebar-search" className={`mt-3 ${this.state.searchActive ? 'show' : ''}`}>
 					<form className="d-flex bg-dark p-2 px-3 align-items-center gap-3 rounded-3">
 						<input
+							type="text"
+							value={this.state.q}
+							onChange={(e) => this.setState({ q: e.target.value })}
 							placeholder={`Search ${this.props.title}...`}
 							className="form-control px-0 bg-transparent text-white shadow-none border-0"
+							style={{ position: 'relative', zIndex: 99 }}
 						/>
 						<button
 							type="button"
