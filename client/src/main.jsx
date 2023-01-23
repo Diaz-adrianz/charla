@@ -6,11 +6,13 @@ import './styles/bootstrap.css';
 import './styles/custom.css';
 import './styles/bootstrap.bundle';
 
+import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-
 import { GoogleOAuthProvider } from '@react-oauth/google';
+
+axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
@@ -23,4 +25,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 		</BrowserRouter>
 	</React.StrictMode>
 );
-

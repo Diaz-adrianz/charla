@@ -1,6 +1,15 @@
 import { GoogleLogin } from '@react-oauth/google';
+import ApiCall from '../helpers/apicall';
 
-function SignInPage() {
+function LoginPage() {
+	async function googleLogin(credentialResponse) {
+		const credential = credentialResponse.credential;
+
+		const data = await ApiCall('post', '/login', { googleToken: credential });
+
+		console.log(data);
+	}
+
 	return (
 		<div className="container-fluid d-flex bg-dark text-white vh-100 overflow-100 pb-5">
 			<div
@@ -19,6 +28,7 @@ function SignInPage() {
 				<GoogleLogin
 					onSuccess={(credentialResponse) => {
 						console.log(credentialResponse);
+						googleLogin(credentialResponse);
 					}}
 					onError={() => {
 						console.log('Login Failed');
@@ -29,4 +39,4 @@ function SignInPage() {
 	);
 }
 
-export default SignInPage;
+export default LoginPage;

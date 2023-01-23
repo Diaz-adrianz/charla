@@ -3,7 +3,7 @@ import UserLayout from './layouts/user';
 import Page404 from './pages/404';
 import ChatsPage from './pages/chats';
 import ConnectionsPage from './pages/connections';
-import SignInPage from './pages/signin';
+import LoginPage from './pages/login';
 
 function App() {
 	return (
@@ -13,7 +13,7 @@ function App() {
 				<Route path="/connections" element={<ConnectionsPage />} />
 			</Route>
 
-			<Route path="/enter" element={<SignInPage />} />
+			<Route path="/login" element={<LoginPage />} />
 
 			<Route path="*" element={<Page404 />} />
 		</Routes>
@@ -21,4 +21,3 @@ function App() {
 }
 
 export default App;
-
