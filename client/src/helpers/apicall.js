@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Toasters from './toasters';
 
 const baseUri = 'http://localhost:5000';
 const ApiCall = async (method, uri, objData = {}, toast = true, withFile = false) => {
@@ -44,7 +45,7 @@ const ApiCall = async (method, uri, objData = {}, toast = true, withFile = false
 		status = res.data.status;
 		msg = res.data.msg;
 
-		if (toast) console.log(msg);
+		if (toast) Toasters(status, msg);
 
 		return res.data.data || true;
 
@@ -55,7 +56,7 @@ const ApiCall = async (method, uri, objData = {}, toast = true, withFile = false
 			msg = error.response.data.msg;
 		}
 
-		console.log(msg);
+		Toasters(status, msg);
 
 		return false;
 	}

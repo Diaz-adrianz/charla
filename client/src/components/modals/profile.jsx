@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import { Navigate } from 'react-router-dom';
+import ApiCall from '../../helpers/apicall';
+import { withRouter } from '../../helpers/withrouters';
+import { setUser } from '../../redux/reducer';
 
 class ModalProfile extends Component {
 	constructor(props) {
@@ -10,6 +14,15 @@ class ModalProfile extends Component {
 			about: 'Turu dekkkk',
 			formReady: false,
 		};
+	}
+
+	async logout() {
+		const res = await ApiCall('delete', '/logout');
+
+		if (!res) return;
+
+		// this.props.dispatch(setUser({ id: data }));
+		this.props.navigate('/login');
 	}
 
 	inputHandler(obj) {
@@ -26,11 +39,14 @@ class ModalProfile extends Component {
 
 	render() {
 		return (
-			<div className="modal fade" id="profile" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1}>
+			<div className="modal fade" id="profile" data-bs-keyboard="false" tabIndex={-1}>
 				<div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 					<div className="modal-content bg-dark">
 						<div className="modal-header bg-dark-tint border-0">
 							<h1 className="modal-title fs-5 text-white">Your profile</h1>
+							<button type="button" onClick={() => this.logout()} className="btn btn-link">
+								<i className="ri-logout-box-line text-danger fs-3"></i>
+							</button>
 						</div>
 						<div className="modal-body">
 							<figure
@@ -136,4 +152,4 @@ class ModalProfile extends Component {
 	}
 }
 
-export default ModalProfile;
+export default withRouter(ModalProfile);

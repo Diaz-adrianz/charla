@@ -17,4 +17,15 @@ export const ChatSlice = createSlice({
 	},
 });
 
+export const userSlice = createSlice({
+	name: 'user',
+	initialState: { id: false },
+	reducers: {
+		setUser: (state, action) => {
+			state.id = action.payload;
+		},
+	},
+});
+
+export const { setUser, removeUser } = userSlice.actions;
 export const { setActive, deActive } = ChatSlice.actions;

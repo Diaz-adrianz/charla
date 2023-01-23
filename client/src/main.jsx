@@ -5,6 +5,7 @@ import App from './App';
 import './styles/bootstrap.css';
 import './styles/custom.css';
 import './styles/bootstrap.bundle';
+import '../node_modules/react-toastify/dist/ReactToastify.css';
 
 import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom';
